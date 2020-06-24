@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom';
 
 import Users from './containers/Users';
 
-const AsyncPizza = React.lazy(() => {
+const Pizza = React.lazy(() => {
   return import('./containers/Pizza.js');
 });
 
@@ -19,7 +19,7 @@ class App extends Component {
           <Route path="/" exact component={Users} />
           <Route path="/pizza" render={() => (
             <Suspense fallback={<div>Loading...</div>}>
-              {AsyncPizza}
+              <Pizza />
             </Suspense>
           )} />
         </div>
@@ -27,3 +27,5 @@ class App extends Component {
     );
   }
 }
+
+export default App;
